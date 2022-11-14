@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Notifications;
+
+use App\Models\User;
+use App\Services\SendSMSService;
+use Illuminate\Notifications\Notification;
+
+class SmsChannel
+{
+    /**
+     * Send the given notification.
+     *
+     * @param mixed $notifiable
+     * @param Notification $notification
+     * @return void
+     */
+    public function send(User $notifiable, Notification $notification)
+    {
+        $message = $notification->toSms($notifiable);
+
+        $SMSService = new SendSMSService('+88' . $notifiable->getMobileForVerification(), $message->getMessageBody());
+        $SMSService->send();
+    }
+}

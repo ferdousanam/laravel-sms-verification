@@ -1,0 +1,47 @@
+{
+  "name": "ferdousanam/laravel-sms-verification",
+  "description": "Laravel SMS Verification for Authenticatable Models",
+  "keywords": [
+    "ferdousanam",
+    "laravel",
+    "laravel-sms-verification",
+    "sms-verification"
+  ],
+  "homepage": "https://github.com/ferdousanam/laravel-sms-verification",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ferdous Anam",
+      "email": "ferdous.anam@gmail.com",
+      "role": "Author"
+    }
+  ],
+  "require": {
+    "php": "^7.3|^8.0",
+    "ext-json": "*",
+    "illuminate/console": ">=6.0",
+    "illuminate/filesystem": ">=6.0",
+    "illuminate/support": ">=6.0",
+    "illuminate/validation": ">=6.0"
+  },
+  "require-dev": {
+    "barryvdh/laravel-debugbar": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Anam\\SmsVerification\\": "src"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Anam\\SmsVerification\\SmsVerificationServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
