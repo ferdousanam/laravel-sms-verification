@@ -79,9 +79,9 @@ Contact Author if interested for author as author is too lazy to write documenta
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/ferdousanam/laravel-sms-verificationr?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/ferdousanam/laravel-sms-verificationr?style=flat-square
-[ico-license]: https://img.shields.io/github/license/ferdousanam/laravel-sms-verificationr?style=flat-square
-[link-packagist]: https://packagist.org/packages/ferdousanam/laravel-sms-verificationr
-[link-downloads]: https://packagist.org/packages/ferdousanam/laravel-sms-verificationr
+[ico-version]: https://img.shields.io/packagist/v/ferdousanam/laravel-sms-verification?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/ferdousanam/laravel-sms-verification?style=flat-square
+[ico-license]: https://img.shields.io/github/license/ferdousanam/laravel-sms-verification?style=flat-square
+[link-packagist]: https://packagist.org/packages/ferdousanam/laravel-sms-verification
+[link-downloads]: https://packagist.org/packages/ferdousanam/laravel-sms-verification
 [link-author]: https://github.com/ferdousanam
