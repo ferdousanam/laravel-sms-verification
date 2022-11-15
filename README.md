@@ -1,12 +1,16 @@
 # Laravel SMS Verification
 
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Total Downloads][ico-downloads]][link-downloads]
+
 ## Run the composer command to install
 
 ```bash
 composer require ferdousanam/laravel-sms-verification
 ```
 
-Add `mobile_verified_at` column to `Authenticatable` model.
+Add `mobile_verified_at` column to `Authenticatable` model's migration file.
 
 ```php
 $table->timestamp('mobile_verified_at')->nullable();

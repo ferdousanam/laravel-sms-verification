@@ -35,9 +35,7 @@ trait VerifiesMobiles
      */
     public function verify(Request $request)
     {
-        $this->validate($request, [
-            'otp' => ['required', 'digits:4'],
-        ]);
+        $this->validator($request->all())->validate();
 
         if (!$request->user()->isValidToken($request->input('otp'))) {
             throw new AuthorizationException;
