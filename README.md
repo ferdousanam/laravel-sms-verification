@@ -10,10 +10,10 @@
 composer require ferdousanam/laravel-sms-verification
 ```
 
-Add `mobile_verified_at` column to `Authenticatable` model's migration file.
+Add `mobile_number_verified_at` column to `Authenticatable` model's migration file.
 
 ```php
-$table->timestamp('mobile_verified_at')->nullable();
+$table->timestamp('mobile_number_verified_at')->nullable();
 ```
 
 ## Publish the migration files
@@ -43,19 +43,20 @@ php artisan vendor:publish --tag=sms-verification
 
 ## Usage
 
-Use the traits `HasVerificationTokens`, `MustVerifyMobile` in `Authenticatable` models
+Use the traits `HasVerificationTokens`, `MustVerifyMobileNumber` in `Authenticatable` models
+
 ```php
 <?php
 
 namespace App\Models;
 
-use Anam\SmsVerification\Contracts\MustVerifyMobile as MustVerifyMobileContract;
+use Anam\SmsVerification\Contracts\MustVerifyMobileNumber as MustVerifyMobileNumberContract;
 use Anam\SmsVerification\HasVerificationTokens;
-use Anam\SmsVerification\MustVerifyMobile;
+use Anam\SmsVerification\MustVerifyMobileNumber;
 
 class User extends Authenticatable
 {
-    use HasVerificationTokens, MustVerifyMobile;
+    use HasVerificationTokens, MustVerifyMobileNumber;
     
     //...
 }

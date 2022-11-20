@@ -17,10 +17,10 @@ class SmsVerificationMethods
             $this->group(['namespace' => $namespace], function() use($options) {
                 // SMS Verification Routes...
                 if ($options['verify_mobile'] ??
-                    class_exists($this->prependGroupNamespace('Auth\VerificationMobileController'))) {
-                    $this->get('sms/verify', 'Auth\VerificationMobileController@show')->name('sms-verification.notice');
-                    $this->post('sms/verify', 'Auth\VerificationMobileController@verify')->name('sms-verification.verify');
-                    $this->post('sms/resend', 'Auth\VerificationMobileController@resend')->name('sms-verification.resend');
+                    class_exists($this->prependGroupNamespace('Auth\MobileNumberVerificationController'))) {
+                    $this->get('sms/verify', 'Auth\MobileNumberVerificationController@show')->name('sms-verification.notice');
+                    $this->post('sms/verify', 'Auth\MobileNumberVerificationController@verify')->name('sms-verification.verify');
+                    $this->post('sms/resend', 'Auth\MobileNumberVerificationController@resend')->name('sms-verification.resend');
                 }
             });
         };

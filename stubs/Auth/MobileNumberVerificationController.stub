@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Anam\SmsVerification\VerifiesMobiles;
+use Illuminate\Support\Facades\Validator;
+
+class MobileNumberVerificationController extends Controller
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Email Verification Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller is responsible for handling email verification for any
+    | user that recently registered with the application. Emails may also
+    | be re-sent if the user didn't receive the original email message.
+    |
+    */
+
+    use VerifiesMobiles;
+
+    /**
+     * Where to redirect users after verification.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('throttle:1,1')->only('verify', 'resend');
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'otp' => ['required', 'digits:4'],
+        ]);
+    }
+}
