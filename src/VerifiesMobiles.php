@@ -20,7 +20,7 @@ trait VerifiesMobiles
      */
     public function show(Request $request)
     {
-        return $request->user()->hasVerifiedMobile()
+        return $request->user()->hasVerifiedMobileNumber()
                         ? redirect($this->redirectPath())
                         : view('auth.sms-verify');
     }
@@ -41,13 +41,13 @@ trait VerifiesMobiles
             throw new AuthorizationException;
         }
 
-        if ($request->user()->hasVerifiedMobile()) {
+        if ($request->user()->hasVerifiedMobileNumber()) {
             return $request->wantsJson()
                         ? new JsonResponse([], 204)
                         : redirect($this->redirectPath());
         }
 
-        if ($request->user()->markMobileAsVerified()) {
+        if ($request->user()->markMobileNumberAsVerified()) {
             event(new Verified($request->user()));
         }
 
@@ -79,13 +79,13 @@ trait VerifiesMobiles
      */
     public function resend(Request $request)
     {
-        if ($request->user()->hasVerifiedMobile()) {
+        if ($request->user()->hasVerifiedMobileNumber()) {
             return $request->wantsJson()
                         ? new JsonResponse([], 204)
                         : redirect($this->redirectPath());
         }
 
-        $request->user()->sendMobileVerificationNotification();
+        $request->user()->sendMobileNumberVerificationNotification();
 
         return $request->wantsJson()
                     ? new JsonResponse([], 202)

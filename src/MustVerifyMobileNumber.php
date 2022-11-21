@@ -55,7 +55,7 @@ trait MustVerifyMobileNumber
      */
     public function getQualifiedMobileNumberVerifiedAtColumn()
     {
-        return $this->qualifyColumn($this->getMobileNumberColumn());
+        return $this->qualifyColumn($this->getMobileNumberVerifiedAtColumn());
     }
 
     /**
@@ -65,7 +65,7 @@ trait MustVerifyMobileNumber
      */
     public function hasVerifiedMobileNumber()
     {
-        return ! is_null($this->{$this->getMobileNumberColumn()});
+        return ! is_null($this->{$this->getMobileNumberVerifiedAtColumn()});
     }
 
     /**
@@ -76,7 +76,7 @@ trait MustVerifyMobileNumber
     public function markMobileNumberAsVerified()
     {
         return $this->forceFill([
-            $this->getMobileNumberColumn() => $this->freshTimestamp(),
+            $this->getMobileNumberVerifiedAtColumn() => $this->freshTimestamp(),
         ])->save();
     }
 
